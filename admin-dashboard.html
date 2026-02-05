@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Portal – Voting System</title>
+<link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>Admin Portal</h2>
+    <div class="nav">
+      <a href="#" class="active" onclick="showSection('candidates',this)">Candidates</a>
+      <a href="#" onclick="showSection('voters',this)">Voters</a>
+      <a href="#" onclick="showSection('reports',this)">Reports</a>
+      <a href="index.php">Logout</a>
+    </div>
+  </aside>
+
+  <main class="content">
+
+  
+    <section id="candidates" class="card section">
+      <h3>Candidate Management</h3>
+
+      <div class="status <?= $votingStatus ? 'open':'closed'; ?>">
+        Voting is <?= $votingStatus ? 'OPEN':'CLOSED'; ?>
+      </div>
+
+      <a href="add-candidate.php" class="btn">Add Candidate</a>
+      <a href="?toggle=1" class="btn btn-secondary">Start / Close Voting</a>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Position</th>
+            <th>Name</th>
+            <th>Party</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php while($c = $candidates->fetch_assoc()): ?>
+          <tr>
+            <td><img class="avatar" src="<?= $c['img'] ?: 'https://via.placeholder.com/80'; ?>"></td>
+            <td><?= $c['position']; ?></td>
+            <td><?= $c['name']; ?></td>
+            <td><?= $c['party']; ?></td>
+            <td>
+              <a href="edit-candidate.php?id=<?= $c['id']; ?>" class="btn">Edit</a>
+              <a href="?deleteCandidate=<?= $c['id']; ?>" class="btn btn-danger"
+                 onclick="return confirm('Delete this candidate?')">Delete</a>
+            </td>
+          </tr>
+          <?php endwhile; ?>
+        </tbody>
+      </table>
+    </section>
+
+
+    <section id="voters" class="card section" style="display:none">
+      <h3>Voter Management</h3>
+      <p>Unverified Students: <?= $unverifiedVoters; ?></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Grade</th>
+            <th>Section</th>
+            <th>Student ID</th>
+            <th>Verified</th>
+            <th>Voted</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php while($v = $voters->fetch_assoc()): ?>
+          <tr>
+            <td><?= $v['name']; ?></td>
+            <td><?= $v['grade']; ?></td>
+            <td><?= $v['section']; ?></td>
+            <td><?= $v['student_id']; ?></td>
+            <td><?= $v['verified'] ? 'Yes':'No'; ?></td>
+            <td><?= $v['hasVoted'] ? 'Yes':'No'; ?></td>
+            <td>
+              <?php if(!$v['verified']): ?>
+                <a href="?verifyVoter=<?= $v['id']; ?>" class="btn">Verify</a>
+              <?php endif; ?>
+              <a href="edit-voter.php?id=<?= $v['id']; ?>" class="btn">Edit</a>
+              <a href="?deleteVoter=<?= $v['id']; ?>" class="btn btn-danger"
+                 onclick="return confirm('Delete this voter?')">Delete</a>
+            </td>
+          </tr>
+          <?php endwhile; ?>
+        </tbody>
+      </table>
+    </section>
+
+
+    <section id="reports" class="card section" style="display:none">
+      <h3>Reports</h3>
+      <p>Total Candidates: <?= $totalCandidates; ?></p>
+      <p>Voting Status: <strong><?= $votingStatus ? 'Open':'Closed'; ?></strong></p>
+      <p>Total Voters: <?= $totalVoters; ?></p>
+      <p>Verified Voters: <?= $verifiedVoters; ?></p>
+      <p>Unverified Voters: <?= $unverifiedVoters; ?></p>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function showSection(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+  el.classList.add('active');
+}
+</script>
+
+</body>
+</html>

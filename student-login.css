@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url(img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family:Verdana;
+}
+
+
+nav.header-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 15px 25px;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.text-box {
+ background-color: #111827;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-right: 70%;
+}
+
+/* ===== CENTER ===== */
+.page-wrapper {
+  height: calc(100vh - 90px);
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== LOGIN BOX ===== */
+.login-box {
+  background: rgba(78, 78, 78, 0.32);
+  padding: 30px;
+  width: 320px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #b6b4b485;
+}
+
+.login-box h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* ===== INPUTS ===== */
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+/* ===== BUTTON ===== */
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background: #111827;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #062dcc;
+}
+
+/* ===== TEXT ===== */
+.toggle {
+  color: #fff;
+  margin-top: 15px;
+  display: block;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 14px;
+}
+
+.success {
+  color: #4ade80;
+  font-size: 14px;
+}

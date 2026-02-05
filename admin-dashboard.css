@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg,#0f172a,#020617);
+  color: #fff;
+  padding: 25px 20px;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+}
+
+.sidebar h2 {
+  margin: 0 0 30px;
+}
+
+.nav a {
+  display: block;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  color: #cbd5e1;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.nav a:hover,
+.nav a.active {
+  background: #1e293b;
+  color: #fff;
+}
+
+.content {
+  margin-left: 260px;
+  padding: 30px;
+  flex: 1;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+th, td {
+  padding: 12px;
+}
+
+th {
+  background: #1e293b;
+  color: #fff;
+}
+
+tr {
+  background: #f8fafc;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Buttons */
+button, .btn {
+  background-color: #111827;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, .btn:hover {
+  background-color: #062dcc;
+}
+
+.btn-danger { background: #dc2626; }
+.btn-danger:hover { background: #991b1b; }
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+/* Status */
+.status {
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.open {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.closed {
+  background: #fee2e2;
+  color: #991b1b;
+}

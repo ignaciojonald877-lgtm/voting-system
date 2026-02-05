@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Login</title>
+<link rel="stylesheet" href="student-login.css">
+
+<script>
+function toggleForm() {
+  document.getElementById("loginForm").style.display =
+    document.getElementById("loginForm").style.display === "none" ? "block" : "none";
+  document.getElementById("signupForm").style.display =
+    document.getElementById("signupForm").style.display === "none" ? "block" : "none";
+}
+</script>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<nav class="header-box">
+  <div class="logo">
+    <img src="images.jpg" alt="Logo">
+  </div>
+  <div class="text-box">Sulivan National High School</div>
+</nav>
+
+<!-- CENTER -->
+<div class="page-wrapper">
+  <div class="login-box">
+
+    <!-- LOGIN -->
+    <form id="loginForm" method="post">
+      <h2>Student Login</h2>
+
+      <?php if ($login_error): ?>
+        <p class="error"><?= $login_error ?></p>
+      <?php endif; ?>
+
+      <input type="text" name="student_id" placeholder="Student ID (6 digits)" maxlength="6" required>
+      <button name="login">Login</button>
+      <span class="toggle" onclick="toggleForm()">Don't have an account? Sign up</span>
+    </form>
+
+    <!-- SIGNUP -->
+    <form id="signupForm" method="post" style="display:none;">
+      <h2>Student Sign Up</h2>
+
+      <?php if ($signup_error): ?>
+        <p class="error"><?= $signup_error ?></p>
+      <?php endif; ?>
+
+      <?php if ($signup_success): ?>
+        <p class="success"><?= $signup_success ?></p>
+      <?php endif; ?>
+
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="text" name="grade" placeholder="Grade" required>
+      <input type="text" name="section" placeholder="Section" required>
+      <input type="text" name="student_id" placeholder="Student ID (6 digits)" maxlength="6" required>
+
+      <button name="signup">Sign Up</button>
+      <span class="toggle" onclick="toggleForm()">Already have an account? Login</span>
+    </form>
+
+  </div>
+</div>
+
+</body>
+</html>

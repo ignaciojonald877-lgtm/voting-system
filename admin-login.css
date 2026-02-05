@@ -1,0 +1,124 @@
+/* RESET + BODY */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Verdana;
+  background-image: url(img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* HEADER */
+nav.header-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 15px 25px;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.text-box {
+  background-color: #111827;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-right: 70%;
+}
+
+/* LOGIN BOX */
+.login-box {
+  background: rgba(78, 78, 78, 0.322);
+  padding: 30px;
+  width: 320px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #b6b4b485;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* INPUTS (FIXED BLACK OUTLINE) */
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+
+  background-color: #f0f0f0;
+  border: none;        /* remove border */
+  outline: none;       /* remove black outline */
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* CUSTOM FOCUS STYLE (OPTIONAL BUT CLEAN) */
+.login-box input:focus {
+  box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.4);
+}
+
+/* PASSWORD FIELD */
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  padding-right: 40px;
+}
+
+.eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #111827;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+button:hover {
+  background: #062dcc;
+}
+
+/* ERROR MESSAGE */
+.error {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* REMOVE CHROME AUTOFILL YELLOW */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #f0f0f0 inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
